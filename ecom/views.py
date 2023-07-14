@@ -6,6 +6,9 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
+import io
+from xhtml2pdf import pisa
+
 
 def home_view(request):
     products=models.Product.objects.all()
@@ -451,8 +454,8 @@ def my_order_view(request):
 
 
 #--------------for discharge patient bill (pdf) download and printing
-import io
-from xhtml2pdf import pisa
+
+
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
